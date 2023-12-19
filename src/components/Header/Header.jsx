@@ -1,44 +1,21 @@
-import React from 'react';
-import './Header.css';
+import './Header.css'; // Assurez-vous de créer ce fichier CSS
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { currentTime: new Date() };
-  }
-
-  componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
-
-  tick() {
-    this.setState({
-      currentTime: new Date()
-    });
-  }
-
-  render() {
-    const hours = this.state.currentTime.getHours().toString().padStart(2, '0');
-    const minutes = this.state.currentTime.getMinutes().toString().padStart(2, '0');
-
+const Header = () => {
     return (
-      <div className="header">
-        <div className="name">
-          <p className='name-header'>Quentin <br /><span style={{ color: '#2d6a4f', fontWeight: 'bold', marginLeft: '40px' }}>Langlois</span></p>
-        </div>
-        <div className="time">
-        <span className="hours">{hours}</span><span style={{color: '#333333'}}>:</span><span className="minutes">{minutes}</span>
-        </div>
-      </div>
+        <header className="header">
+            <div className="logo">
+                <img src="src/assets/logo_portfolio.png" alt="Logo" />
+            </div>
+            <nav className="navigation">
+                <ul>
+                    <li><a href="#home" className="nav-link">Home</a></li>
+                    <li><a href="#portfolio" className="nav-link">Portfolio</a></li>
+                    <li><a href="#about" className="nav-link">About</a></li>
+                    <li><a href="#contact" className="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
     );
-  }
-}
+};
 
 export default Header;
