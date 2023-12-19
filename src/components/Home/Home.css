@@ -1,7 +1,14 @@
 .home-container {
-  height: 100vh;
+  height: 70vh;
+  width: 100vw;
   overflow-x: hidden;
   background-color: #a0c4ff;
+  text-align: center;
+  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .fade-enter {
@@ -28,4 +35,40 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.text-home-1 {
+  font-size: 6rem;
+  font-weight: 700;
+  color: #2d6a4f  ;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.text-home-2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #333333 ;
+  margin-bottom: 7px;
+}
+
+.text-home-3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 7px;
+}
+
+.text-home-4 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 7px;
+}
+
+.photo {
+  width: 120px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 75px;
 }

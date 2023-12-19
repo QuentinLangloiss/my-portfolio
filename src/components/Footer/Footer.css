@@ -1,5 +1,6 @@
 
 footer {
+  height: 15vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,4 +30,13 @@ footer p {
   font-size: 1.5rem;
   font-weight: 700;
   margin-right: 30px;
+  color: #333333;
+}
+
+hr {
+  width: 55%;
+  margin: 0;
+  border: 0;
+  height: 1px;
+  background-color: #2d6a4f;
 }

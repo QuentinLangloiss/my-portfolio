@@ -25,14 +25,16 @@ class Header extends React.Component {
   }
 
   render() {
-    const formattedTime = this.state.currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const hours = this.state.currentTime.getHours().toString().padStart(2, '0');
+    const minutes = this.state.currentTime.getMinutes().toString().padStart(2, '0');
+
     return (
       <div className="header">
-        <div className="logo">
-          <img src="src/assets/logo_portfolio.png" alt="Logo" />
+        <div className="name">
+          <p className='name-header'>Quentin <br /><span style={{ color: '#2d6a4f', fontWeight: 'bold', marginLeft: '40px' }}>Langlois</span></p>
         </div>
         <div className="time">
-          {formattedTime}
+        <span className="hours">{hours}</span><span style={{color: '#333333'}}>:</span><span className="minutes">{minutes}</span>
         </div>
       </div>
     );

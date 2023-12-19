@@ -4,6 +4,7 @@
   align-items: center;
   padding: 10px 20px;
   background-color: #a0c4ff;
+  height: 15vh;
 }
 
 .logo img {
@@ -14,4 +15,25 @@
   font-size: 1.3em;
   font-weight: bold;
   margin-right: 20px
+}
+
+.name-header {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin: 15px 0 0 20px;
+  color: #333333;
+}
+
+.time {
+  margin-right: 20px;
+}
+
+.hours {
+  font-size: 1.5em;
+  color: #333333;
+}
+
+.minutes {
+  font-size: 1.5em;
+  color: #2d6a4f;
 }
