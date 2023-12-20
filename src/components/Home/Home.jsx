@@ -20,7 +20,7 @@ const Home = () => {
   }, []);
 
     const textAnimationStyle = {
-        animation: 'typing 2s steps(30, end), blink-caret 0.75s step-end infinite',
+        animation: 'typing 5s steps(30, end), blink-caret 0.75s step-end infinite',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         borderRight: '3px solid',

@@ -52,3 +52,7 @@
   text-decoration: none;
   color: #2A9D8F ;
 }
+
+.project-info a:hover {
+  color: #F4A261 ;
+}

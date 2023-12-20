@@ -1,7 +1,6 @@
 import './Portfolio.css';
 
 const Portfolio = () => {
-    // Ici, vous pouvez définir vos projets sous forme d'un tableau d'objets
     const projects = [
         {
             title: 'Helivo',
