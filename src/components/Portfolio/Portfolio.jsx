@@ -11,18 +11,11 @@ const Portfolio = () => {
             codeLink: 'https://github.com/QuentinLangloiss/Helivo'
         },
         {
-            title: 'Projet 2',
-            description: 'Description du Projet 2',
-            imageUrl: 'url_de_limage_du_projet_2',
-            demoLink: 'lien_demo_projet_2',
-            codeLink: 'lien_code_source_projet_2'
-        },
-        {
-            title: 'Projet 3',
-            description: 'Description du Projet 3',
-            imageUrl: 'url_de_limage_du_projet_3',
-            demoLink: 'lien_demo_projet_3',
-            codeLink: 'lien_code_source_projet_3'
+            title: 'Simple Landing Page',
+            description: 'Site web simple pour présenter un produit',
+            imageUrl: 'src/assets/Simple_landing_page.png',
+            demoLink: 'https://quentinlangloiss.github.io/landing/',
+            codeLink: 'https://github.com/QuentinLangloiss/landing'
         }
     ];
 
@@ -35,6 +28,7 @@ const Portfolio = () => {
                         <h3>{project.title}</h3>
                         <p>{project.description}</p>
                         <a href={project.demoLink}>Démo</a>
+                        <span> | </span>
                         <a href={project.codeLink}>Code Source</a>
                     </div>
                 </div>

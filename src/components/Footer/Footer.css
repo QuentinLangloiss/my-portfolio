@@ -1,0 +1,32 @@
+.footer {
+  background-color: #333; /* Couleur de fond du footer */
+  color: #fff; /* Couleur du texte */
+  padding: 20px; /* Espacement intérieur */
+  text-align: center; /* Alignement du texte */
+}
+
+.footer-content {
+  max-width: 1200px; /* Largeur maximale du contenu */
+  margin: 0 auto; /* Centrage */
+}
+
+.footer-content p {
+  color: #fff; /* Couleur du texte */
+}
+
+.footer-links {
+  margin: 10px 0; /* Marge autour des liens */
+}
+
+.footer-links a {
+  color: #fff; /* Couleur des liens */
+  margin: 0 10px; /* Espacement entre les liens */
+  text-decoration: none; /* Suppression du soulignement */
+  transition: color 0.3s ease; /* Transition pour l'effet hover */
+}
+
+.footer-links a:hover {
+  color: #F4A261 ; /* Couleur des liens au survol */
+}
+
+/* Ajoutez ici d'autres styles spécifiques si nécessaire */

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Home.css';
-import profilePic from '../../assets/pfp.png';
+import profilePic from '../../assets/pfp_square.png';
 
 
 const Home = () => {
@@ -30,13 +30,30 @@ const Home = () => {
         color: '#333333',
     };
 
-    const imageStyle = {
-        opacity: scrollY > 100 ? 1 : 0,
-        transform: `translateY(${scrollY * 0.2}px)`,
-        transition: 'opacity 2s ease-out, transform 2s ease-out',
-        width: '300px',
-        height: 'auto'
-    };
+    const [imageStyle, setImageStyle] = useState({
+      opacity: 0,
+      transform: 'translateY(20px)',
+      transition: 'opacity 1s ease-out, transform 1s ease-out',
+      width: '300px',
+      height: 'auto',
+      borderRadius: '50%',
+      marginTop: '30px',
+    });
+
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            const newStyle = {
+                ...imageStyle,
+                opacity: 1,
+                transform: 'translateY(0)'
+            };
+            setImageStyle(newStyle);
+        }, 500);
+
+        return () => clearTimeout(timer);
+    }, []);
+
 
     const containerStyle = {
       display: 'flex',
