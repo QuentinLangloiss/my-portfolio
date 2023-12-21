@@ -1,21 +1,41 @@
-import './Header.css'; // Assurez-vous de créer ce fichier CSS
+
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const Header = () => {
-    return (
-        <header className="header">
-            <div className="logo">
-                <img src="src/assets/logo_portfolio.png" alt="Logo" />
-            </div>
-            <nav className="navigation">
-                <ul>
-                    <li><a href="#home" className="nav-link">Home</a></li>
-                    <li><a href="#portfolio" className="nav-link">Portfolio</a></li>
-                    <li><a href="#about" className="nav-link">About</a></li>
-                    <li><a href="#contact" className="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-    );
+  const nameHoverAnimation = {
+    hover: { scale: 1.2, text: "Votre développeur préféré" }
+  };
+
+  const linkHoverAnimation = {
+    hover: { scale: 1.1, x: 10, underline: true }
+  };
+
+  return (
+    <header>
+      <motion.div
+        initial={{ scale: 1 }}
+        whileHover="hover"
+        variants={nameHoverAnimation}
+        className="name">
+        Nom et Prénom
+      </motion.div>
+      <nav>
+        <ul>
+          {["Portfolio", "About", "Contact"].map((link, index) => (
+            <motion.li
+              key={index}
+              initial={{ scale: 1, x: 0 }}
+              whileHover="hover"
+              variants={linkHoverAnimation}
+              className="nav-link">
+              {link}
+            </motion.li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  );
 };
 
 export default Header;

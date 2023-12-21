@@ -1,0 +1,53 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+
+  .name {
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    // Animation de survol pour le nom et prénom
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+
+      .nav-link {
+        font-size: 1.2em;
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.3s ease;
+
+        // Animation de survol pour les liens
+        &:hover {
+          transform: translateX(10px);
+
+          // Ajout d'un soulignement
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: black;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
