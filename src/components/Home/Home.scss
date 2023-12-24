@@ -8,17 +8,21 @@
 
   .home-content {
     text-align: center;
+    width: 100%;
     z-index: 1; // Assure que le contenu est au-dessus du nom qui défile
 
     .role {
       font-size: 1.5em;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      text-align: left;
+      margin-left: 60px;
+      font-weight: bold;
     }
 
     .image-container {
       position: absolute;
       bottom: 0; // Positionne l'image en bas du composant
-      left: 50%;
+      left: 85%;
       transform: translateX(-50%); // Centre l'image horizontalement
 
       img {
@@ -45,6 +49,15 @@
       animation: scroll 10s linear infinite;
       font-weight: bold;
     }
+  }
+
+  .description {
+    font-size: 1.1em;
+    margin-top: 20px;
+    width: 50%;
+    text-align: left;
+    margin-left: 60px;
+    margin-bottom: 150px;
   }
 }
 
