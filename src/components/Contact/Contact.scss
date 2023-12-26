@@ -1,0 +1,95 @@
+.contact {
+    padding: 50px 12.5rem;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+
+      @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+      }
+  }
+
+  @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+  }
+
+  .contact-info {
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease;
+      text-align: center;
+
+      h2 {
+          color: #333;
+      }
+
+      img {
+          width: 175px;
+          height: 175px;
+          border-radius: 50%;
+          margin-top: 30px;
+          object-fit: cover;
+          object-position: center;
+          border: 3px solid #FB8B24;
+      }
+
+  }
+
+  .contact-form {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      animation: fadeIn 1.5s ease;
+      margin-top: 40px;
+
+      input, textarea {
+          margin-bottom: 15px;
+          padding: 8px 16px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+      }
+
+      button {
+          padding: 10px;
+          border: none;
+          background-color: #FB8B24;
+          color: white;
+          border-radius: 4px;
+          cursor: pointer;
+
+          &:hover {
+              background-color: #E36414;
+          }
+      }
+  }
+
+  .social-links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: fadeIn 2s ease;
+      margin-top: 20px;
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        color: #739072;
+        gap: 10px;
+
+        &:hover {
+            color: #4F6F52;
+            transform: scale(1.05);
+        }
+    }
+  }
+}
