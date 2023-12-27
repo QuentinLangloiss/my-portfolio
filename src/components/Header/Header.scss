@@ -9,22 +9,26 @@
 .nav-links {
   list-style: none;
   display: flex;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .nav-link {
   margin: 0 1rem;
   text-decoration: none;
   color: #fff;
-  position: relative; // Ajout pour la position relative
+  position: relative;
 
   &:before {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px; // Épaisseur du soulignement
+    height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #304D30; // Couleur du soulignement
+    background-color: #304D30;
     visibility: hidden;
     transition: all 0.3s ease-in-out;
   }
@@ -39,6 +43,9 @@
   }
 }
 
+button.name:focus {
+  outline: none;
+}
 
 .name {
   background-color: transparent;

@@ -1,41 +1,50 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { useForm, ValidationError } from '@formspree/react';
 import './Contact.scss';
 
-const Contact = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: ''
-    });
+function ContactForm() {
+  const [state, handleSubmit] = useForm("xyyrgqoo");
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [name, setName] = useState('');
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+  function validateEmail(email) {
+      return /\S+@\S+\.\S+/.test(email);
+  }
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
+  function validateMessage(message) {
+      return message.trim().length > 0;
+  }
 
-      try {
-          const response = await fetch('URL_DU_SERVEUR_BACKEND', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(formData),
-          });
+  function validateName(name) {
+    return name.trim().length > 0;
+  }
 
-          if (response.ok) {
-              setFormData({ name: '', email: '', message: '' });
-              // Afficher un message de succès ou traiter la réponse ici
-          } else {
-              // Gérer les erreurs de réponse ici
-          }
-      } catch (error) {
-          // Gérer les erreurs de réseau ici
-      }
+
+  const canSubmit = validateEmail(email) && validateMessage(message) && validateName(name);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    handleSubmit(e);
   };
+
+  if (state.succeeded) {
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
+    return <p>Merci pour votre message !</p>;
+  }
+
+  window.onbeforeunload = () => {
+    for(const form of document.getElementsByTagName('form')) {
+      form.reset();
+    }
+  }
+
+
 
 
     return (
@@ -46,31 +55,42 @@ const Contact = () => {
                 <img src="src/assets/contact_form.png" alt="illustration contact" />
             </div>
 
-            <form className="contact-form" onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Votre nom"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                />
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Votre email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                />
-                <textarea
-                    name="message"
-                    placeholder="Votre message"
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                ></textarea>
-                <button type="submit">Envoyer</button>
+            <form className='contact-form' method='POST' onSubmit={onSubmit}>
+              <label htmlFor="name">Nom</label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                aria-label="Nom"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <label htmlFor="email">
+                Address e-mail
+              </label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                aria-label="Adresse e-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <ValidationError prefix="Email" field="email" errors={state.errors} />
+              <label htmlFor="message">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                aria-label="Votre message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+              <ValidationError prefix="Message" field="message" errors={state.errors} />
+              <button type="submit" disabled={!canSubmit || state.submitting}>
+                {state.submitting ? 'Envoi en cours...' : 'Envoyer'}
+              </button>
             </form>
 
             <div className="social-links">
@@ -83,10 +103,17 @@ const Contact = () => {
                 <a href="https://github.com/QuentinLangloiss" className="social-link">
                     <FontAwesomeIcon icon={faGithub} /> GitHub
                 </a>
+                <a href="mailto:quentinwebdev@proton.me" className="social-link">
+                    <FontAwesomeIcon icon={faEnvelope} /> Email
+                </a>
             </div>
           </div>
         </div>
     );
-};
-
-export default Contact;
+}
+function App() {
+  return (
+    <ContactForm />
+  );
+}
+export default App;
