@@ -4,6 +4,7 @@ import { faLinkedin, faTwitter, faGithub } from '@fortawesome/free-brands-svg-ic
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { useForm, ValidationError } from '@formspree/react';
 import './Contact.scss';
+import Image_form from '../../assets/contact_form.png';
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xyyrgqoo");
@@ -52,7 +53,7 @@ function ContactForm() {
           <h2>Contactez-moi</h2>
           <div className="contact-inner">
             <div className="contact-info">
-                <img src="contact_form.png" alt="illustration contact" />
+                <img src={Image_form} alt="illustration contact" />
             </div>
 
             <form className='contact-form' method='POST' onSubmit={onSubmit}>
