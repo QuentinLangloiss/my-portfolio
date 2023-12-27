@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Portfolio.scss';
+import Helivo from '../../assets/Helivo.png';
+import Simple_landing_page from '../../assets/Simple_landing_page.png';
 
 class Portfolio extends React.Component {
     constructor(props) {
@@ -10,7 +12,7 @@ class Portfolio extends React.Component {
             projects: [
                 {
                     id: 1,
-                    image: 'src/assets/Helivo.png',
+                    image: Helivo,
                     title: 'Helivo',
                     description: 'Site web pour une agence de développement web',
                     link: 'https://www.helivo.fr/',
@@ -18,7 +20,7 @@ class Portfolio extends React.Component {
                 },
                 {
                     id: 2,
-                    image: 'src/assets/Simple_landing_page.png',
+                    image: Simple_landing_page,
                     title: 'Simple Landing Page',
                     description: 'Landing page pour le site du Wagon',
                     link: 'https://quentinlangloiss.github.io/landing/',

@@ -52,7 +52,7 @@ function ContactForm() {
           <h2>Contactez-moi</h2>
           <div className="contact-inner">
             <div className="contact-info">
-                <img src="src/assets/contact_form.png" alt="illustration contact" />
+                <img src="contact_form.png" alt="illustration contact" />
             </div>
 
             <form className='contact-form' method='POST' onSubmit={onSubmit}>
